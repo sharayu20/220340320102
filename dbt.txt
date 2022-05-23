@@ -1,0 +1,45 @@
+desc emp;
+create database dept;
+use dept;
+create table dept(deptno int(2),dname varchar(15),loc varchar(10));
+desc dept;
+show databases;
+insert into dept values(10,'ACCOUNTING','NEWYORK');
+select * from dept;
+select * from dept;
+select * from EMP;
+
+insert into EMP (EMPNO,ENAME,JOB,HIREDATE,SAL,COMM,DEPTNO)
+values(7839,'King','Manager','1991-11-17',5000,Null,10),(7698,'BLAKE','CLARK','1981-05-01',2850,null,30),(7782,'CLARK','MANAGER','1981-06-09',2450,null
+,10),(7566,'JONES','CLERK','1981-04-02',2975,null,20),(7654,'MARTIN','SALESMAN','1981-09-28',1250,1400,30),(7499,'ALLEN','SALESMAN','1981-02-20',1600,300,30);
+3.select ENAME from EMP where SAL between 2500 and 5000;
+4.select ENAME from EMP order by ENAME desc;
+
+5.select lower (JOB) FROM EMP;
+
+6.select ENAME , length (ENAME) from EMP;
+
+7.select deptno ,  count(EMPNO) from EMP group by deptno;
+
+8.select dname,ENAME from dept , EMP where dept.deptno= EMP.deptno;
+
+9.select position("AR" IN "ENAME") from EMP;
+
+10.select ENAME,0.20 into SAL HRA from EMP;
+
+
+SEC 2.
+1.CREATE TABLE DEMO (OUTPUT VARCHAR(10));
+DELIMITER//
+CREATE PROCEDURE PROC1 (A VARCHAR(30),B VARCHAR(30))
+BEGIN 
+IF INSTR(A,B)> 0 OR INSTR(B,A) THEN 
+INSERT INTO DEMO VALUES ('EXISTS');
+ELSE
+INSERT INTO DEMO VALUES ('NOT EXITS');
+END IF;
+
+DELIMITER;
+
+CALL PROC1('DAC','CDAC');
+SELECT * FROM DEMO;
